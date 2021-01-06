@@ -1,0 +1,45 @@
+@import '~antd/lib/style/themes/default.less';
+
+@shadow-properties: 2px 2px 5px #c1c1c1;
+.mainDiv {
+  width: 100%;
+  padding: 10px 30px 10px 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: @shadow-properties;
+  .title {
+    color: #000;
+    font-weight: bold;
+    font-size: 25px;
+  }
+}
+.menuSpan {
+  width: 100%;
+  padding: 10px 30px 10px 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: @shadow-properties;
+  .menuDiv {
+    min-height: 350px;
+    text-align: center;
+  }
+}
+.detailSpan {
+  width: 100%;
+  min-height: 500px;
+  padding: 10px 30px 10px 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: @shadow-properties;
+  .logo{
+    font-size: 90px;
+    cursor: pointer;
+  }
+  .logo:hover{
+    color: @primary-color;
+  }
+}
+.rightTitle {
+  font-weight: bold;
+  font-size: 20px;
+}

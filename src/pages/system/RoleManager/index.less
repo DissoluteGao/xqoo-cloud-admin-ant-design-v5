@@ -1,0 +1,66 @@
+@import '~antd/lib/style/themes/default.less';
+
+@shadow-properties: 2px 2px 5px #c1c1c1;
+.operationDiv{
+  min-height: 150px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: @shadow-properties;
+}
+
+.roleCardDiv{
+  margin-top: 40px;
+  border-radius: 5px;
+  box-shadow: @shadow-properties;
+}
+.roleCard{
+  min-height: 350px;
+  .roleCardPlainText{
+    color: #6d6e71;
+    font-size: 8px;
+  }
+  .roleCardGrid{
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    .roleCardGridRoleKey{
+      width: 100%;
+      min-height: 30px;
+      color: #6d6e71;
+      font-size: 10px;
+      text-align: left;
+    }
+    .roleCardGridRoleName{
+      width: 100%;
+      min-height: 80px;
+      padding: 10% 20% 10% 20%;
+      color: #33343b;
+      font-weight: bold;
+      font-size: 23px;
+      text-align: center;
+    }
+    .operationBar{
+      width: 94%;
+      margin-left: 3%;
+      line-height: 40px;
+      border-top: 1px dashed #aaabae;
+      .iconOperation{
+        width: 100%;
+        min-height: 40px;
+        color: #444548;
+        font-size: 18px;
+        text-align: center;
+      }
+      .iconOperation:hover{
+        color: @primary-color;
+      }
+    }
+  }
+  .roleCardGrid:hover{
+    .roleCardGridRoleName{
+      color: @primary-color;
+    }
+  }
+}
+
