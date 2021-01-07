@@ -178,7 +178,7 @@ const Login: React.FC<{}> = () => {
               },
             }}
             onFinish={async (values) => {
-              handleSubmit(values);
+              await handleSubmit(values);
             }}
           >
             <Tabs activeKey={type} onChange={setType}>
