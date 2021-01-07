@@ -9,7 +9,7 @@ import {
   CodeSandboxOutlined,
 } from '@ant-design/icons';
 import { Alert, Space, message, Tabs, Row, Col } from 'antd';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ProForm, { ProFormCaptcha, ProFormText } from '@ant-design/pro-form';
 import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
 import Footer from '@/components/Footer';
@@ -99,6 +99,9 @@ const Login: React.FC<{}> = () => {
     }
     return undefined;
   };
+  useEffect(() => {
+    form.resetFields();
+  }, []);
   const handleSubmit = async (values: LoginParamsType) => {
     const valueIn = values;
     setSubmitting(true);
@@ -215,12 +218,7 @@ const Login: React.FC<{}> = () => {
                   rules={[
                     {
                       required: true,
-                      message: (
-                        <FormattedMessage
-                          id="pages.login.loginId.required"
-                          defaultMessage="请输入用户名!"
-                        />
-                      ),
+                      message: '请输入用户名',
                     },
                   ]}
                 />

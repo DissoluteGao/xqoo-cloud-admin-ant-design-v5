@@ -1,6 +1,6 @@
 import React from 'react';
 import { Settings as LayoutSettings, PageLoading } from '@ant-design/pro-layout';
-import {message, notification} from 'antd';
+import {Button, message, notification, Space} from 'antd';
 import { history, RequestConfig } from 'umi';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
@@ -26,7 +26,7 @@ history.listen(async (location: any) => {
     history.push(-1);
   }
   if (!currentUser?.token && location.pathname !== '/auth/login') {
-    history.replace('/auth/login');
+    history.push('/auth/login');
   }
 });
 export async function getInitialState(): Promise<{
@@ -164,22 +164,16 @@ const errorHandler = (error: ResponseError) => {
       notification.error({
         message: errorText.message,
         description: `${errorText.description},即将返回登录页`,
-        key: 'responseError'
-      });
-      const hide = message.loading('正在注销...', 0);
-      removeCacheCurrentUser('current').then(() => {
-        hide();
-        const { query, pathname } = history.location;
-        const { redirect } = query;
-        // Note: There may be security issues, please note
-        if (pathname !== '/auth/login' && !redirect) {
-          history.replace({
-            pathname: '/auth/login',
-            search: stringify({
-              redirect: pathname,
-            }),
-          });
-        }
+        key: 'responseError',
+        duration: 0,
+        btn: <Space>
+          <Button type="default" size="small" onClick={() => notification.close('responseError')}>
+            取消
+          </Button>
+          <Button type="primary" size="small" onClick={() => redirectLoginPage()}>
+            返回登录
+          </Button>
+        </Space>
       });
     }
   }
@@ -191,6 +185,25 @@ const errorHandler = (error: ResponseError) => {
     });
   }
   throw error;
+};
+
+const redirectLoginPage = () => {
+  const hide = message.loading('正在注销...', 0);
+  notification.close('responseError');
+  removeCacheCurrentUser('current').then(() => {
+    hide();
+    const { query, pathname } = history.location;
+    const { redirect } = query;
+    // Note: There may be security issues, please note
+    if (pathname !== '/auth/login' && !redirect) {
+      history.push({
+        pathname: '/auth/login',
+        search: stringify({
+          redirect: pathname,
+        }),
+      });
+    }
+  });
 };
 
 // 全局请求拦截器
