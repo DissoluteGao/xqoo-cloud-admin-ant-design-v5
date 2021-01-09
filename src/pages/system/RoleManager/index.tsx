@@ -94,7 +94,7 @@ const RoleManager: React.FC<{}> = () => {
   // 初始化地址栏参数查询
   const initQuery = () => {
     const { query } = pathHash
-    const initQueryParam: SysRoleQuery = query as SysRoleQuery;
+    const initQueryParam: SysRoleQuery = query as unknown as SysRoleQuery;
     if(initQueryParam){
       const obj: SysRoleQuery = _assign({}, queryParam, initQueryParam);
       queryRoleList(obj);

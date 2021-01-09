@@ -28,6 +28,8 @@
   { path: '/devOps/gatewayIntercept', component: './devOps/GatewayIntercept', access: 'routeFilter' }, // 网关拦截日志记录
   { path: '/devOps/userLoginHistory', component: './devOps/UserLoginHistory', access: 'routeFilter' }, // 用户登录历史
   { path: '/devOps/operationLog', component: './devOps/OperationLog', access: 'routeFilter' }, // 用户登录历史
+  { path: '/devOps/gatewayRoute', component: './devOps/GatewayRoute', access: 'routeFilter' }, // 网关路由
+  { path: '/devOps/gatewayRoute/updateGatewayRoute', component: './devOps/GatewayRoute/components/updateGatewayRoute', access: 'routeFilter' }, // 网关路由维护界面
 
   { path: '/code', component: './Welcome', access: 'routeFilter' }, // 代码管理分组下的默认页面
   { path: '/code/dataSource', component: './code/DataSource', access: 'routeFilter' }, // 数据源中心

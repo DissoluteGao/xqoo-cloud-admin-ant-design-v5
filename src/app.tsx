@@ -105,9 +105,9 @@ export const layout = ({ initialState }: {
     onPageChange: () => {
       const { location } = history;
       // 如果没有登录，重定向到 login
-      if (!initialState?.currentUser && location.pathname !== '/auth/login') {
-        history.push('/auth/login');
-      }
+      // if (!initialState?.currentUser && location.pathname !== '/auth/login') {
+      //   history.push('/auth/login');
+      // }
     },
     menuHeaderRender: undefined,
     // 自定义 403 页面
